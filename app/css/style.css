@@ -1,6 +1,5 @@
 @import 'tailwindcss';
 
-/* Additional styles */
 @import './additional-styles/utility-patterns.css' layer(components);
 @import './additional-styles/theme.css';
 
@@ -10,8 +9,6 @@
 
 @theme {
   --font-inter: var(--font-inter), sans-serif;
-  --font-nacelle: var(--font-nacelle), sans-serif;
-
   --text-xs: 0.8125rem;
   --text-xs--line-height: 1.5384;
   --text-sm: 0.875rem;
@@ -43,10 +40,8 @@
   --text-7xl: 4.5rem;
   --text-7xl--line-height: 1;
   --text-7xl--letter-spacing: -0.0268em;
-
   --animate-shine: shine 5s ease-in-out 500ms infinite;
   --animate-gradient: gradient 6s linear infinite;
-
   @keyframes shine {
     0% {
       top: 0;
@@ -74,6 +69,7 @@
   }
 }
 
+
 /*
   The default border color has changed to `currentColor` in Tailwind CSS v4,
   so we've added these compatibility styles to make sure everything still
@@ -82,6 +78,7 @@
   If we ever want to remove these styles, we need to add an explicit border
   color utility to any element that depends on these defaults.
 */
+
 @layer base {
   *,
   ::after,
