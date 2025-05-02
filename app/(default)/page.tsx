@@ -1,5 +1,5 @@
 import React from "react";
-import Main from "@/components/ui/main";
+import Main from "@/components/layout/main";
 
 
 export const metadata = {
