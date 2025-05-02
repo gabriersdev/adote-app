@@ -1,4 +1,4 @@
-import {ReactNode, JSX} from "react";
+import React, {ReactNode, JSX} from "react";
 
 type GridProps = {
   children: ReactNode;

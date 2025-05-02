@@ -5,7 +5,7 @@ import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-import BootstrapClientLoader from "@/components/base/BootstrapClientLoader";
+import BootstrapClientLoader from "@/components/base/bootstrap-client-loader";
 
 export default function DefaultLayout({
   children,
@@ -23,9 +23,7 @@ export default function DefaultLayout({
 
   return (
     <>
-      <BootstrapClientLoader>
-        {children}
-      </BootstrapClientLoader>
+      {children}
     </>
   );
 }

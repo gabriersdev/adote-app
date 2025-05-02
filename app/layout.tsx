@@ -11,6 +11,8 @@ import {Inter_Tight} from "next/font/google";
 
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
+import GeneralFunctions from "@/components/base/general-functions";
+import BootstrapClientLoader from "@/components/base/general-functions";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -71,24 +73,26 @@ export const metadata = {
 };
 
 export default function RootLayout({
-                                     children,
-                                   }: {
+  children,
+}: {
   children: React.ReactNode;
 }) {
   return (
     <html lang={config.lang}>
-    <>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-      <meta httpEquiv="X-UA-Compatible" content="ie=edge"/>
-      <meta name="charset" content={config.charset}/>
-    </>
-    <body className={`${inter.variable} ${interTight.variable} ${heroNew.variable} font-inter bg-gray-950 font-inter text-base text-gray-200 antialiased`}>
-    <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
-      <Header/>
-      {children}
-      <Footer/>
-    </div>
-    </body>
+      <>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta httpEquiv="X-UA-Compatible" content="ie=edge"/>
+        <meta name="charset" content={config.charset}/>
+      </>
+      <body className={`${inter.variable} ${interTight.variable} ${heroNew.variable} font-inter text-base`}>
+        <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
+          <BootstrapClientLoader/>
+          <GeneralFunctions/>
+          <Header/>
+          {children}
+          <Footer/>
+        </div>
+      </body>
     </html>
   );
 }

@@ -10,12 +10,12 @@ export default function AnimatedComponents({children}: { children: React.ReactNo
           {child}
         </AnimatedComponent>
       </AnimatePresence>
-    )
+    );
   }) : (
     <AnimatePresence mode={"wait"}>
       <AnimatedComponent>
         {children}
       </AnimatedComponent>
     </AnimatePresence>
-  )
+  );
 };

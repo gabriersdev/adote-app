@@ -1,4 +1,4 @@
-import {FC} from "react";
+import React, {FC} from "react";
 import {Alert} from "react-bootstrap";
 import Grid from "@/components/ui/grid";
 import Card from "@/components/ui/card-box";

@@ -1,5 +1,5 @@
-import React from 'react';
-import {Form} from 'react-bootstrap';
+import React from "react";
+import {Form} from "react-bootstrap";
 import FormControlWrapper from "@/components/ui/form-control-wrapper";
 
 interface Option {
@@ -19,15 +19,15 @@ interface SelectFieldProps {
 }
 
 const SelectField: React.FC<SelectFieldProps> = ({
-                                                   id,
-                                                   label,
-                                                   options,
-                                                   value,
-                                                   onChange,
-                                                   required = false,
-                                                   className = '',
-                                                   placeholder = 'Selecione...',
-                                                 }) => (
+  id,
+  label,
+  options,
+  value,
+  onChange,
+  required = false,
+  className = "",
+  placeholder = "Selecione...",
+}) => (
   <FormControlWrapper id={id} label={label} required={required} className={className}>
     <Form.Select value={value} onChange={onChange} required={required}>
       <option value="">{placeholder}</option>

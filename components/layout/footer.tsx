@@ -11,8 +11,8 @@ export default function Footer() {
       {"label": "Termos de serviço", "link": "#"},
       {"label": "Suporte", "link": "#"},
       {"label": "Privacidade", "link": "#"},
-    ]
-  }, [])
+    ];
+  }, []);
 
   return (
     <footer className="py-4 border-top border-t-slate-300">

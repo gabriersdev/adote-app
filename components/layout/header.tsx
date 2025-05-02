@@ -1,29 +1,29 @@
 "use client";
 
 import React, {useMemo, useState} from "react";
-import {Button, Form, FormControl, Navbar} from "react-bootstrap";
+import {Form, FormControl, Navbar} from "react-bootstrap";
 import Link from "next/link";
 import CustomButton from "@/components/ui/custom-button";
 
 export default function Header() {
-    const items = useMemo(() => {
-      return [
-        {"label": "Início", "link": "#"},
-        {"label": "Painel", "link": "#"},
-        {"label": "Sobre", "link": "#"},
-      ]
-    }, [])
+  const items = useMemo(() => {
+    return [
+      {"label": "Início", "link": "#"},
+      {"label": "Painel", "link": "#"},
+      {"label": "Sobre", "link": "#"},
+    ];
+  }, []);
 
   const [input, setInput] = useState("");
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInput(event.target.value);
-  }
+  };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
+    event.preventDefault();
     console.log(new FormData(event.currentTarget));
-  }
+  };
 
   return (
     <header className={"py-2 border-1 border-b-slate-300"}>

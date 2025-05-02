@@ -1,4 +1,4 @@
-import React, {JSX} from 'react';
+import React, {JSX} from "react";
 
 interface TitleProps {
   level?: 1 | 2 | 3 | 4 | 5 | 6;
@@ -6,7 +6,7 @@ interface TitleProps {
   className?: string;
 }
 
-const Title: React.FC<TitleProps> = ({ level = 1, children, className = '' }) => {
+const Title: React.FC<TitleProps> = ({ level = 1, children, className = "" }) => {
   const Tag = `h${level}` as keyof JSX.IntrinsicElements;
   return <Tag className={`fw-bold ${className}`}>{children}</Tag>;
 };

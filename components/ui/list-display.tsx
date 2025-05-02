@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface ListDisplayProps {
   items: string[];
@@ -7,11 +7,11 @@ interface ListDisplayProps {
 }
 
 const ListDisplay: React.FC<ListDisplayProps> = ({
-                                                   items,
-                                                   ordered = false,
-                                                   className = '',
-                                                 }) => {
-  const ListTag = ordered ? 'ol' : 'ul';
+  items,
+  ordered = false,
+  className = "",
+}) => {
+  const ListTag = ordered ? "ol" : "ul";
   return (
     <ListTag className={`list-unstyled ${className}`}>
       {items.map((item, index) => (

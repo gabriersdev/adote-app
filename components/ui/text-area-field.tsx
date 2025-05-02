@@ -1,6 +1,6 @@
-import React from 'react';
-import {Form} from 'react-bootstrap';
-import FormControlWrapper from '@/components/ui/form-control-wrapper';
+import React from "react";
+import {Form} from "react-bootstrap";
+import FormControlWrapper from "@/components/ui/form-control-wrapper";
 
 interface TextareaFieldProps {
   id: string;
@@ -14,15 +14,15 @@ interface TextareaFieldProps {
 }
 
 const TextareaField: React.FC<TextareaFieldProps> = ({
-                                                       id,
-                                                       label,
-                                                       value,
-                                                       onChange,
-                                                       required = false,
-                                                       placeholder = '',
-                                                       rows = 4,
-                                                       className = '',
-                                                     }) => (
+  id,
+  label,
+  value,
+  onChange,
+  required = false,
+  placeholder = "",
+  rows = 4,
+  className = "",
+}) => (
   <FormControlWrapper id={id} label={label} required={required} className={className}>
     <Form.Control
       as="textarea"
