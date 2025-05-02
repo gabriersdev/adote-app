@@ -6,13 +6,13 @@ import Link from "next/link";
 import CustomButton from "@/components/ui/custom-button";
 
 export default function Header() {
-  const items = useMemo(() => {
-    return [
-      {"label": "Início", "link": "#"},
-      {"label": "Painel", "link": "#"},
-      {"label": "Sobre", "link": "#"},
-    ]
-  }, [])
+    const items = useMemo(() => {
+      return [
+        {"label": "Início", "link": "#"},
+        {"label": "Painel", "link": "#"},
+        {"label": "Sobre", "link": "#"},
+      ]
+    }, [])
 
   const [input, setInput] = useState("");
 
@@ -27,7 +27,7 @@ export default function Header() {
 
   return (
     <header className={"py-2 border-1 border-b-slate-300"}>
-      <Navbar className={"container"}>
+      <Navbar className={"container align-items-center"}>
         <Navbar.Brand className={"font-hero-new"} as={Link} href={"/"}>Adoção</Navbar.Brand>
         <Navbar.Collapse className="flex gap-2 flex-wrap justify-between">
           <ul className={"flex p-0 m-0"}>
@@ -39,7 +39,7 @@ export default function Header() {
           </ul>
           <div>
             <Form method="POST" onSubmit={handleSubmit}>
-              <legend className={"flex gap-2"}>
+              <legend className={"flex gap-2 m-0 p-0"}>
                 <FormControl type={"text"} value={input} onChange={handleChange} placeholder={"Digite..."} required={true}></FormControl>
                 <CustomButton type={"submit"} variant={"outline-info"} className={"font-hero-new"} text={"Pesquisar"}></CustomButton>
               </legend>
