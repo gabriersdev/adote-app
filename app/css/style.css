@@ -9,6 +9,8 @@
 
 @theme {
   --font-inter: var(--font-inter), sans-serif;
+  --font-inter-tight: var(--font-inter-tight), sans-serif;
+  --font-hero-new: var(--font-hero-new), sans-serif;
   --text-xs: 0.8125rem;
   --text-xs--line-height: 1.5384;
   --text-sm: 0.875rem;
@@ -87,4 +89,24 @@
   ::file-selector-button {
     border-color: var(--color-gray-200, currentColor);
   }
+}
+
+/*
+  General configs for the bootstrap and personal components
+  font-family and font-size for the HTML tags etc
+*/
+* {
+  font-family: "Inter", "Inter Tight", "Hero New", sans-serif;
+}
+
+.font-inter {
+  font-family: "Inter", sans-serif;
+}
+
+.font-inter-tight {
+  font-family: "Inter Tight", "Inter", sans-serif;
+}
+
+.font-hero-new {
+  font-family: "Hero New", sans-serif;
 }

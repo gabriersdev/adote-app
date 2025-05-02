@@ -1,4 +1,6 @@
 import React from "react";
+import Main from "@/components/ui/main";
+
 
 export const metadata = {
   title: "Home",
@@ -7,6 +9,8 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <>Content for Home page.</>
+    <Main>
+      <>Content for Home page.</>
+    </Main>
   );
 }

@@ -1,11 +1,15 @@
+import React from "react";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap-icons/font/bootstrap-icons.min.css";
+
 import "./css/style.css";
 
 import localFont from "next/font/local";
 import { Inter } from "next/font/google";
 import { Inter_Tight } from "next/font/google";
 
-import Header from "@/components/ui/header";
-import React from "react";
+import Header from "@/components/layout/header";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -77,11 +81,11 @@ export default function RootLayout({
         <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
         <meta name="charset" content={config.charset} />
       </>
-      <body
-        className={`${inter.variable} ${interTight.variable} ${heroNew.variable} bg-gray-950 font-inter text-base text-gray-200 antialiased`}
+      <body className={`${inter.variable} ${interTight.variable} ${heroNew.variable} font-inter bg-gray-950 font-inter text-base text-gray-200 antialiased`}
       >
         <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
           <Header />
+
           {children}
         </div>
       </body>

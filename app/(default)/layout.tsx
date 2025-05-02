@@ -5,7 +5,8 @@ import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-import Footer from "@/components/ui/footer";
+import Footer from "@/components/layout/footer";
+import BootstrapClientLoader from "@/components/base/BootstrapClientLoader";
 
 export default function DefaultLayout({
   children,
@@ -23,9 +24,10 @@ export default function DefaultLayout({
 
   return (
     <>
-      <main className="relative flex grow flex-col">{children}</main>
-
-      <Footer />
+      <BootstrapClientLoader>
+        {children}
+        <Footer />
+      </BootstrapClientLoader>
     </>
   );
 }

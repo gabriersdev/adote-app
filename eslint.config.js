@@ -25,6 +25,7 @@ module.exports = [
       "no-undef": "off",
       "@typescript-eslint/no-require-imports": "off",
       "no-console": "off",
+      "@typescript-eslint/ban-ts-comment": "off",
       ...reactPlugin.configs.recommended.rules
     },
     settings: {
