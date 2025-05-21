@@ -7,10 +7,10 @@ import Link from "next/link";
 export default function Footer() {
   const items = useMemo(() => {
     return [
-      {"label": "Contato", "link": "#"},
-      {"label": "Termos de serviço", "link": "#"},
-      {"label": "Suporte", "link": "#"},
-      {"label": "Privacidade", "link": "#"},
+      {"label": "Contato", "link": "/contact"},
+      {"label": "Termos de serviço", "link": "/terms"},
+      {"label": "Suporte", "link": "/support"},
+      {"label": "Privacidade", "link": "/privacy"},
     ];
   }, []);
 

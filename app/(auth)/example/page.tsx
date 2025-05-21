@@ -5,7 +5,7 @@ export const metadata = {
   description: "Page description",
 };
 
-export default function SignUp() {
+export default function Example() {
   return (
     <>Content...</>
   );

@@ -1,11 +1,14 @@
 import React from 'react';
+import InputField from "@/components/ui/input-field";
+import TextAreaField from "@/components/ui/text-area-field";
 
 type Field = {
+  id: string;
   name: string;
   label: string;
   type: 'text' | 'email' | 'number' | 'password' | 'textarea' | 'checkbox' | 'radio' | 'select';
   placeholder?: string;
-  options?: { label: string; value: string }[];
+  options?: { label: string; value: string, id: string }[];
 };
 
 type DynamicFormProps = {
@@ -19,53 +22,52 @@ const DynamicForm: React.FC<DynamicFormProps> = ({fields, value, onChange}) => {
     <form>
       {fields.map((field) => (
         <div key={field.name} style={{marginBottom: '1rem'}}>
-          <label>{field.label}</label>
           {(() => {
             switch (field.type) {
               case 'textarea':
                 return (
-                  <textarea
-                    name={field.name}
-                    placeholder={field.placeholder}
-                    value={value[field.name] || ''}
-                    onChange={onChange}
-                  />
+                  <TextAreaField id={field.id}
+                                 name={field.name}
+                                 label={field.label}
+                                 placeholder={field.placeholder}
+                                 value={value[field.name] || ''}
+                                 onChange={onChange}/>
                 );
               case 'checkbox':
                 return (
-                  <input
-                    type="checkbox"
-                    name={field.name}
-                    checked={!!value[field.name]}
-                    onChange={(e) =>
-                      onChange({
-                        ...e,
-                        target: {
-                          ...e.target,
-                          value: e.target.checked,
-                          name: field.name,
-                        },
-                      })
-                    }
+                  <InputField type="checkbox"
+                              id={field.id}
+                              name={field.name}
+                              checked={!!value[field.name]}
+                              label={field.label}
+                              value={""}
+                              onChange={(e) =>
+                                onChange({
+                                  ...e,
+                                  target: {
+                                    ...e.target,
+                                    value: e.target.checked,
+                                    name: field.name,
+                                  },
+                                })
+                              }
                   />
                 );
               case 'radio':
                 return (
                   <div>
                     {field.options?.map((opt) => (
-                      <label key={opt.value}>
-                        <input
-                          type="radio"
-                          name={field.name}
-                          value={opt.value}
-                          checked={value[field.name] === opt.value}
-                          onChange={onChange}
-                        />
-                        {opt.label}
-                      </label>
+                      <InputField id={opt.id}
+                                  name={field.name}
+                                  label={opt.label}
+                                  value={opt.value}
+                                  checked={value[field.name] === opt.value}
+                                  onChange={onChange}
+                      />
                     ))}
                   </div>
-                );
+                )
+                  ;
               case 'select':
                 return (
                   <select name={field.name} value={value[field.name] || ''} onChange={onChange}>
@@ -79,13 +81,13 @@ const DynamicForm: React.FC<DynamicFormProps> = ({fields, value, onChange}) => {
                 );
               default:
                 return (
-                  <input
-                    type={field.type}
-                    name={field.name}
-                    placeholder={field.placeholder}
-                    value={value[field.name] || ''}
-                    onChange={onChange}
-                  />
+                  <InputField id={field.id}
+                              type={field.type}
+                              label={field.label}
+                              name={field.name}
+                              placeholder={field.placeholder}
+                              value={value[field.name] || ''}
+                              onChange={onChange}/>
                 );
             }
           })()}

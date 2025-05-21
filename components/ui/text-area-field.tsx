@@ -4,6 +4,7 @@ import FormControlWrapper from "@/components/ui/form-control-wrapper";
 
 interface TextareaFieldProps {
   id: string;
+  name: string;
   label: string;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
@@ -15,6 +16,7 @@ interface TextareaFieldProps {
 
 const TextareaField: React.FC<TextareaFieldProps> = ({
   id,
+  name = "",
   label,
   value,
   onChange,
@@ -25,6 +27,8 @@ const TextareaField: React.FC<TextareaFieldProps> = ({
 }) => (
   <FormControlWrapper id={id} label={label} required={required} className={className}>
     <Form.Control
+      id={id}
+      name={name}
       as="textarea"
       value={value}
       onChange={onChange}
