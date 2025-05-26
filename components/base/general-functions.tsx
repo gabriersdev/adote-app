@@ -1,6 +1,7 @@
 "use client";
 
 import {useEffect, useMemo, useState} from "react";
+import { useRouter } from 'next/router'
 import axios from "axios";
 
 export default function GeneralFunctions() {
@@ -41,6 +42,7 @@ export default function GeneralFunctions() {
     }
   }, []);
 
+  // Registro de acesso
   useEffect(() => {
     // Hostname "XXX" não existirá, portanto o bloco de código não vai rodar
     if (publicIp && window.location.hostname === "XXX") {
