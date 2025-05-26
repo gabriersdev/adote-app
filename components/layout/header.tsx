@@ -4,13 +4,14 @@ import React, {useMemo, useState} from "react";
 import {Form, FormControl, Navbar} from "react-bootstrap";
 import Link from "next/link";
 import CustomButton from "@/components/ui/custom-button";
+import Content from "@/content/content";
 
 export default function Header() {
   const items = useMemo(() => {
     return [
-      {"label": "Início", "link": "#"},
-      {"label": "Painel", "link": "#"},
-      {"label": "Sobre", "link": "#"},
+      {"label": "Início", "link": "/"},
+      {"label": "Painel", "link": "/panel"},
+      {"label": "Sobre", "link": "/about"},
     ];
   }, []);
 
@@ -28,7 +29,7 @@ export default function Header() {
   return (
     <header className={"py-2 border-1 border-b-slate-300"}>
       <Navbar className={"container align-items-center"}>
-        <Navbar.Brand className={"font-hero-new"} as={Link} href={"/"}>Adoção</Navbar.Brand>
+        <Navbar.Brand className={"font-hero-new"} as={Link} href={"/"}>{Content.UI()["app-name"] || "Portal de Adoção"}</Navbar.Brand>
         <Navbar.Collapse className="flex gap-2 flex-wrap justify-between">
           <ul className={"flex p-0 m-0"}>
             {
