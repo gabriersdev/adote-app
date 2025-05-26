@@ -27,8 +27,8 @@ export default function Header() {
   };
 
   return (
-    <header className={"py-2 border-1 border-b-slate-300"}>
-      <Navbar className={"container align-items-center"}>
+    <header className={"py-2 border-1 border-b-slate-300 px-2 md:px-0"}>
+      <Navbar className={"container align-items-center flex-wrap"}>
         <Navbar.Brand className={"font-hero-new"} as={Link} href={"/"}>{Content.UI()["app-name"] || "Portal de Adoção"}</Navbar.Brand>
         <Navbar.Collapse className="flex gap-2 flex-wrap justify-between">
           <ul className={"flex p-0 m-0"}>
