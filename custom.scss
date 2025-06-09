@@ -1,0 +1,11 @@
+// Sobrescreva as cores padrão
+@use "node_modules/bootstrap/scss/bootstrap" with (
+  $primary: #05A8AA,
+  $secondary: #4C4C4C,
+  $success: #2CAB4850,
+  $danger: #DC602E,
+  $warning: #FBE866,
+  $info: #3083FF50,
+  $light: #F8F9F9,
+  $dark: #343A40,
+);

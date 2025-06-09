@@ -2,6 +2,7 @@
 
 @import './additional-styles/utility-patterns.css' layer(components);
 @import './additional-styles/theme.css';
+@import './custom-colors-bs.css';
 
 @plugin "@tailwindcss/forms" {
   strategy: base;
@@ -70,7 +71,6 @@
     }
   }
 }
-
 
 /*
   The default border color has changed to `currentColor` in Tailwind CSS v4,

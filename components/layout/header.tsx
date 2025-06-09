@@ -42,7 +42,7 @@ export default function Header() {
             <Form method="POST" onSubmit={handleSubmit}>
               <legend className={"flex gap-2 m-0 p-0"}>
                 <FormControl type={"text"} value={input} onChange={handleChange} placeholder={"Digite..."} required={true}></FormControl>
-                <CustomButton type={"submit"} variant={"outline-info"} className={"font-hero-new"} text={"Pesquisar"}></CustomButton>
+                <CustomButton type={"submit"} variant={"primary"} className={"font-hero-new"} text={"Pesquisar"}></CustomButton>
               </legend>
             </Form>
           </div>
