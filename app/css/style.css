@@ -2,7 +2,9 @@
 
 @import './additional-styles/utility-patterns.css' layer(components);
 @import './additional-styles/theme.css';
+
 @import './custom-colors-bs.css';
+@import './override-classes.css';
 
 @plugin "@tailwindcss/forms" {
   strategy: base;

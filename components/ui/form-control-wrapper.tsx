@@ -17,7 +17,7 @@ const FormControlWrapper: React.FC<FormControlWrapperProps> = ({
   className = "",
   children,
 }) => (
-  <Form.Group className={`mb-3 ${className}`} controlId={id}>
+  <Form.Group className={`${className} ${!className.includes("mb-0") && "mb-3"}`} controlId={id}>
     <Label htmlFor={id} required={required}>{label}</Label>
     {children}
   </Form.Group>
