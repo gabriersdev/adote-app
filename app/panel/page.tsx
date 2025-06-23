@@ -7,6 +7,7 @@ import Title from "@/components/ui/title";
 import {Button, Form} from "react-bootstrap";
 import DynamicForm from "@/components/ui/dynamic-form";
 import Text from "@/components/ui/text";
+import Content from "@/content/content";
 
 // export const metadata = {
 //   title: `Painel - ${Content.UI()["app-name"]}`,
@@ -196,6 +197,11 @@ export default function Page() {
 
     return () => setContent(<></>);
   }, [userStatus])
+
+  useEffect(() => {
+    if (!document) return;
+    document.title = `Painel - ${Content.UI()["app-name"]}`
+  }, []);
 
   return (
     <Main className={"flex flex-col items-center gap-5"}>

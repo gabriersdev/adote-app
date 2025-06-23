@@ -13,9 +13,16 @@ export default function Page() {
   return (
     <Main className={"flex flex-col gap-5"}>
       <TitleContainer>Sobre nós</TitleContainer>
-      <Text as={"p"}>
-        Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.
-      </Text>
+      {
+        [
+          "Aqui no abrigo, cada dia é dedicado a cuidar, proteger e dar uma nova chance para animais que um dia foram abandonados, sofreram maus-tratos ou simplesmente se perderam. Nosso trabalho vai muito além de oferecer abrigo temporário - buscamos garantir saúde, bem-estar e amor até que cada um encontre um lar definitivo.",
+          "Cada animal que chega passa por uma avaliação veterinária completa, recebe os cuidados necessários, é vacinado, vermifugado e, quando possível, castrado. Também trabalhamos na socialização, ajudando cães e gatos a superarem traumas e a se prepararem para uma nova vida em família.",
+          "Além do cuidado diário, promovemos campanhas de conscientização, educação sobre guarda responsável e eventos de adoção, pois acreditamos que a transformação começa com a informação e o envolvimento da comunidade.",
+          "Adotar é um ato de amor - e aqui, cada adoção é celebrada como uma nova história que começa, cheia de esperança. Seja parte desse trabalho: adote, apadrinhe ou apoie o abrigo. Juntos, podemos mudar vidas."
+        ].map((paragraph, i) => {
+          return (<Text as={"p"} key={i} className={"font-hero-new"}>{paragraph}</Text>)
+        })
+      }
     </Main>
   );
 }
