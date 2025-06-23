@@ -16,28 +16,44 @@ interface InputFieldProps {
 }
 
 const InputField: React.FC<InputFieldProps> = ({
-  id,
-  name = "",
-  label,
-  value,
-  checked = false,
-  onChange,
-  type = "text",
-  required = true,
-  placeholder,
-  className = "",
-}) => (
-  <FormControlWrapper id={id} label={label} required={required} className={className}>
-    <Form.Control
-      type={type}
-      name={name}
-      value={value}
-      checked={checked}
-      onChange={onChange}
-      placeholder={placeholder}
-      required={required}
-    />
-  </FormControlWrapper>
-);
+                                                 id,
+                                                 name = "",
+                                                 label,
+                                                 value,
+                                                 checked = false,
+                                                 onChange,
+                                                 type = "text",
+                                                 required = true,
+                                                 placeholder,
+                                                 className = "",
+                                               }) => {
+  if (type === "checkbox" || type === "radio") {
+    return (
+      <Form.Check
+        type={type}
+        id={id}
+        name={name}
+        label={label}
+        value={value}
+        checked={checked}
+        onChange={onChange}
+        className={className}
+      />
+    );
+  }
+
+  return (
+    <FormControlWrapper id={id} label={label} required={required} className={className}>
+      <Form.Control
+        type={type}
+        name={name}
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
+        required={required}
+      />
+    </FormControlWrapper>
+  );
+};
 
 export default InputField;

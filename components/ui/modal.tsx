@@ -1,9 +1,10 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import Button from 'react-bootstrap/Button';
 import BSModal from 'react-bootstrap/Modal';
 import Title from "@/components/ui/title";
 
 type Props = {
+  actionChildren: React.ReactNode;
   className?: string,
   title?: string,
   children?: React.ReactNode,
@@ -12,7 +13,7 @@ type Props = {
   size?: "lg" | "sm" | "md" | "xl",
 }
 
-function Modal({className, title, children, actionsFooter, backdrop, size}: Props) {
+function Modal({actionChildren, className, title, children, actionsFooter, backdrop, size}: Props) {
   if (!size) size = "lg";
 
   const [show, setShow] = useState(false);
@@ -21,11 +22,12 @@ function Modal({className, title, children, actionsFooter, backdrop, size}: Prop
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        Launch demo modal
-      </Button>
+      <div className={"m-0 b-0"} onClick={handleShow}>
+        {actionChildren}
+      </div>
 
-      <BSModal show={show} onHide={handleClose} backdrop={backdrop && "static"} keyboard={backdrop && false} centered className={className} size={size}>
+      {/*// @ts-ignore*/}
+      <BSModal show={show} onHide={handleClose} backdrop={backdrop && "static"} keyboard={backdrop && false} centered className={className} size={size || "lg"}>
         <BSModal.Header closeButton className={"border-0"}>
           <Title level={4} className={"font-inter-tight mb-0"}>{title}</Title>
         </BSModal.Header>

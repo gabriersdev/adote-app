@@ -3,7 +3,7 @@ import {Form} from "react-bootstrap";
 import Label from "@/components/ui/label";
 
 interface FormControlWrapperProps {
-  id: string;
+  id?: string;
   label: string;
   required?: boolean;
   className?: string;

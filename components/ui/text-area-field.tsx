@@ -25,7 +25,7 @@ const TextareaField: React.FC<TextareaFieldProps> = ({
   rows = 4,
   className = "",
 }) => (
-  <FormControlWrapper id={id} label={label} required={required} className={className}>
+  <FormControlWrapper label={label} required={required} className={className}>
     <Form.Control
       id={id}
       name={name}
