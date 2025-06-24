@@ -9,7 +9,7 @@ import Grid from "@/components/ui/grid";
 import Title from "@/components/ui/title";
 import Modal from "@/components/ui/modal";
 import Image from "next/image";
-import {Button} from "react-bootstrap";
+import {Button, Card} from "react-bootstrap";
 
 // export const metadata = {
 //   title: "Home",
@@ -46,7 +46,6 @@ function MultipleSelect({label, value, onChange, className, labelClassName}: { l
 }
 
 function AnimalsSearch() {
-
   const [species, setSpecies] = useState<MultiValue<OptionType>>([
     {value: 'dog', label: 'Cachorro'},
     {value: 'cat', label: 'Gato'},
@@ -77,7 +76,7 @@ function AnimalsSearch() {
 function AnimalsList() {
   return (
     <div>
-      <Grid cols={1}>
+      <Grid cols={3}>
         {
           Array.from({length: 4}).map((_, i) => (
             <div key={i}>
@@ -131,10 +130,34 @@ function AnimalsList() {
 
 export default function Home() {
   return (
-    <Main className={""}>
-      <div className="d-flex flex-column gap-5">
-        <AnimalsSearch/>
-        <AnimalsList/>
+    <Main>
+      <div className={"flex flex-col gap-4"}>
+        <div className="flex flex-col gap-4 pb-4 border-bottom border-secondary-subtle">
+          <Title level={2}>Seus processos</Title>
+          <Grid cols={2}>
+            <Card>
+              <Card.Header className={"bg-body-secondary"}>
+                <span className={"font-semibold"}>Processo 12345678909</span>
+              </Card.Header>
+              <Card.Body className={"flex flex-col items-start gap-3"}>
+                <Title level={3}>Seu processo de adoção está em andamento</Title>
+                <div>
+                  <span className={"text-muted"}>Status:</span>
+                  {" "}
+                  <span>Aguardando análise</span>
+                </div>
+                <Button variant={"primary"} className={"font-hero-new"}>
+                  Acompanhar processo
+                </Button>
+              </Card.Body>
+            </Card>
+          </Grid>
+        </div>
+        <div className="flex flex-col gap-4">
+          <Title level={2}>Animais em adoção</Title>
+          <AnimalsSearch/>
+          <AnimalsList/>
+        </div>
       </div>
     </Main>
   );

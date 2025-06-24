@@ -5,6 +5,7 @@
 
 @import './custom-colors-bs.css';
 @import './override-classes.css';
+@import './document-upload.css';
 
 @plugin "@tailwindcss/forms" {
   strategy: base;
