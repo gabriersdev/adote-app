@@ -14,15 +14,14 @@ export default function BootstrapClientLoader({children}: { children: React.Reac
   const updateTargetLinks = useCallback(() => {
     Array.from(document.querySelectorAll("a")).forEach(a => {
       if (!a.href) return;
-      a?.setAttribute("rel", "noopener noreferrer");
 
       if (a?.href.startsWith("mailto:") || a?.href.startsWith("tel:")) a.target = "_blank";
-      else if (a?.href.startsWith("#") || (a?.href.includes("#") && new URL(a.href).hostname === window?.location.hostname)) a.target = "_self";
-      else if (new URL(a.href).pathname === "/" && new URL(a.href).hostname === window?.location.hostname) a.target = "_self";
-      else if (new URL(a.href).hostname === window?.location.hostname) a.target = "_self";
+      else if (a?.href.startsWith("#") || (a?.href.includes("#") && new URL(a.href).hostname === window?.location.hostname)) console.log("");
+      else if (new URL(a.href).pathname === "/" && new URL(a.href).hostname === window?.location.hostname) console.log("");
+      else if (new URL(a.href).hostname === window?.location.hostname) console.log("");
+      else a.target = "_blank";
 
-      else a.target = "";
-      a.dataset.linkUpdated = "true"
+      if (a.target === "_blank") a?.setAttribute("rel", "noopener noreferrer");
     })
   }, [])
 
