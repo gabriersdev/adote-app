@@ -2,18 +2,18 @@ import React from "react";
 
 import Util from "@/utils/Util";
 import {ListGroup, ListGroupItem} from "react-bootstrap";
-
+import Content from "@/content/content";
 import Main from "@/components/layout/main";
 import Title from "@/components/ui/title";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Title Page",
-  description: "Page description",
+  title: `Contato - ${Content.UI()["app-name"]}`,
+  description: "",
 };
 
 export default function Page() {
-  const data = [["cnpj", "00.000.000/0000-00"], ["tel", "(31) 3014-3014"], ["mail", "email@email.com"], ["address", "Rua ABCDEFGHI, N.º 200 - Serra, Belo Horizonte-MG"]];
+  const data = [["cnpj", "70.900.156/00001-01"], ["tel", "(31) 3014-3014"], ["mail", "abrigo@abrigo.com"], ["address", "Rua da Serra, N.º 200 - Serra, Sabará-MG"]];
 
   return (
     <Main>
@@ -29,7 +29,8 @@ export default function Page() {
               <ListGroupItem key={index} className={"d-flex gap-2 bg-body border-tertiary text-body"} style={{borderColor: "var(--bs-gray-300)"}} as={Link} href={
                 item[0] === "tel" ? `tel:${item[1]}` :
                   item[0] === "mail" ? `mailto:${item[1]}` :
-                    ''
+                    item[0] === "address" ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item[1])}` :
+                      ''
               }>
                 <div className={"text-teal-500"}>
                   {
@@ -37,10 +38,12 @@ export default function Page() {
                       item[0] === "mail" ? <span><i className="bi bi-at"></i></span> :
                         item[0] === "address" ? <span><i className="bi bi-compass-fill"></i></span> :
                           item[0] === "cnpj" ? <span><i className="bi bi-123"></i></span> :
-                          <span><i className="bi bi-info"></i></span>
+                            <span><i className="bi bi-info"></i></span>
                   }
                 </div>
-                <span>{Util.renderText(item[1])}</span>
+                {
+                  <span>{Util.renderText(item[1])}</span>
+                }
               </ListGroupItem>
             )
           })

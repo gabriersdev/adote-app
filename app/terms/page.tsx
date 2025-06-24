@@ -25,7 +25,7 @@ export default function Page() {
       <section>
         <div>
           <div className={"py-4"}>
-            <Title level={2} className={"text-center text-balance"}>Sistema de Adoção de Animais do Abrigo "{Content.Abrigo().name}"</Title>
+            <Title level={2} className={"text-balance"}>Sistema de Adoção de Animais do Abrigo "{Content.Abrigo().name}"</Title>
           </div>
           <div>
             <Text as={"p"} color={"body"} className={"m-0"} balance={false}>
