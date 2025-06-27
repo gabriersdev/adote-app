@@ -1,6 +1,6 @@
 "use client";
 
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Main from "@/components/layout/main";
 import Select, {MultiValue} from 'react-select';
 import Label from "@/components/ui/label";
@@ -11,10 +11,14 @@ import Modal from "@/components/ui/modal";
 import Image from "next/image";
 import {Button, Card} from "react-bootstrap";
 
+import {createContext, useContext} from "react";
+
 // export const metadata = {
 //   title: "Home",
 //   description: "Page description",
 // };
+
+const ThemeContext = createContext({});
 
 type OptionType = {
   value: string;
@@ -46,6 +50,8 @@ function MultipleSelect({label, value, onChange, className, labelClassName}: { l
 }
 
 function AnimalsSearch() {
+  const {list} = useContext(ThemeContext);
+
   const [species, setSpecies] = useState<MultiValue<OptionType>>([
     {value: 'dog', label: 'Cachorro'},
     {value: 'cat', label: 'Gato'},
@@ -74,11 +80,13 @@ function AnimalsSearch() {
 }
 
 function AnimalsList() {
+  const {list} = useContext(ThemeContext);
+
   return (
     <div>
       <Grid cols={3}>
         {
-          Array.from({length: 4}).map((_, i) => (
+          list.map((_, i) => (
             <div key={i}>
               <Modal
                 actionChildren={(
@@ -129,6 +137,17 @@ function AnimalsList() {
 }
 
 export default function Home() {
+  const [list, setList] = useState<Array<any>>([])
+
+  const contextData = {
+    list,
+    setList
+  }
+
+  useEffect(() => {
+    // setList([])
+  }, []);
+
   return (
     <Main>
       <div className={"flex flex-col gap-4"}>
@@ -154,9 +173,11 @@ export default function Home() {
           </Grid>
         </div>
         <div className="flex flex-col gap-4">
-          <Title level={2}>Animais em adoção</Title>
-          <AnimalsSearch/>
-          <AnimalsList/>
+          <ThemeContext.Provider value={contextData}>
+            <Title level={2}>Animais em adoção</Title>
+            <AnimalsSearch/>
+            <AnimalsList/>
+          </ThemeContext.Provider>
         </div>
       </div>
     </Main>
