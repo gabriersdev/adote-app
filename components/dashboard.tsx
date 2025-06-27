@@ -2,11 +2,9 @@ import React from 'react';
 import {
   Row,
   Col,
-  Nav,
   Button,
   Card,
   Table,
-  Badge,
   Dropdown
 } from 'react-bootstrap';
 
@@ -14,6 +12,8 @@ import moment from "moment";
 import "moment/locale/pt-br";
 import Title from "@/components/ui/title";
 import Link from "next/link";
+import Aside from "@/components/panel-aside";
+import Header from "@/components/panel-header";
 
 moment.locale('pt-br');
 
@@ -31,50 +31,6 @@ const processData: Process[] = [
   {code: '000000000000', animal: 'Cristina', status: 'Concluído'},
 ];
 
-const Aside: React.FC = () => (
-  <Col as={"aside"} lg={2} className="h-[80vh] col-md-3 p-0 bg-body-tertiary border border-top-0 border-bottom-0">
-    <div className="flex flex-column items-start gap-5 h-full w-full px-8 py-6">
-      <div className="flex gap-2 items-center">
-        <span className={"h-[36px] w-[36px] bg-gray-300 block rounded"}></span>
-        <div>
-          <span className={""}>Nome Abrigo</span>
-        </div>
-      </div>
-
-      <div className="flex gap-3 flex-col">
-        <span className={"text-body font-semibold"}>Painel</span>
-        <Nav className="flex-column flex">
-          {
-            [
-              ["Processos", "/panel/dashboard"]
-            ].map((item, i) => {
-              return (
-                <Nav.Item className={"m-0 p-0"} key={i}>
-                  <Nav.Link role={"listitem"} eventKey="/process" className={"m-0 p-0 btn btn-default"}>
-                    <span className={"inline-block px-3 py-1.5 bg-green-300 text-body rounded-sm"}>
-                      Processos
-                    </span>
-                  </Nav.Link>
-                </Nav.Item>
-              )
-            })
-          }
-        </Nav>
-      </div>
-
-      <div className="mt-auto">
-        <Button role={"link"} onClick={() => {
-          window.open("mailto:devgabrielribeiro@gmail.com")
-        }} variant="warning" className="w-100">Reportar falha</Button>
-        <div className="text-muted mt-2">
-          <div>LOG E{Math.ceil(new Date().getTime() * (Math.random() * 10)).toString().slice(-6)}</div>
-          <div><i className="bi bi-c-circle"></i> {moment().get("year")} Painel</div>
-          <div>Versão 1.0.0</div>
-        </div>
-      </div>
-    </div>
-  </Col>
-);
 
 const MainContent: React.FC = () => {
   const getStatusVariant = (status: Process['status']) => {
@@ -82,7 +38,7 @@ const MainContent: React.FC = () => {
   }
 
   return (
-    <Col md={7} lg={10} className="p-4 flex flex-col items-stretch justify-start">
+    <Col md={9} lg={10} className="p-4 flex flex-col items-stretch justify-start">
       <div className={"flex flex-col items-center"}>
         <main className={"min-w-[70vw] flex flex-col gap-4"}>
           <div className="flex justify-between items-center flex-wrap gap-2">
@@ -142,16 +98,8 @@ const MainContent: React.FC = () => {
 const Dashboard: React.FC = () => {
   return (
     <>
-      <header className={"bg-body-tertiary border-bottom py-3 px-4 flex justify-between items-center"}>
-        <hgroup className="flex flex-wrap items-center gap-3">
-          <span className={"h-[36px] w-[36px] bg-gray-300 block rounded"}></span>
-          <Title level={4} className={"m-0 fw-medium"}>Painel</Title>
-        </hgroup>
-        <div className={"flex flex-wrap gap-1 items-end"}>
-          <span>Boa tarde</span><b>Bruno</b>
-        </div>
-      </header>
       <Row>
+        <Header/>
         <Aside/>
         <MainContent/>
       </Row>
