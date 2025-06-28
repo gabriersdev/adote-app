@@ -16,9 +16,9 @@ export default function BootstrapClientLoader({children}: { children: React.Reac
       if (!a.href) return;
 
       if (a?.href.startsWith("mailto:") || a?.href.startsWith("tel:")) a.target = "_blank";
-      else if (a?.href.startsWith("#") || (a?.href.includes("#") && new URL(a.href).hostname === window?.location.hostname)) console.log("");
-      else if (new URL(a.href).pathname === "/" && new URL(a.href).hostname === window?.location.hostname) console.log("");
-      else if (new URL(a.href).hostname === window?.location.hostname) console.log("");
+      else if (a?.href.startsWith("#") || (a?.href.includes("#") && new URL(a.href).hostname === window?.location.hostname)) new Date().getTime();
+      else if (new URL(a.href).pathname === "/" && new URL(a.href).hostname === window?.location.hostname) new Date().getTime();
+      else if (new URL(a.href).hostname === window?.location.hostname) new Date().getTime();
       else a.target = "_blank";
 
       if (a.target === "_blank") a?.setAttribute("rel", "noopener noreferrer");

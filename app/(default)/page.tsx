@@ -12,6 +12,8 @@ import Image from "next/image";
 import {Button, Card} from "react-bootstrap";
 
 import {createContext, useContext} from "react";
+import axios from "axios";
+import Content from "@/content/content";
 
 // export const metadata = {
 //   title: "Home",
@@ -50,7 +52,9 @@ function MultipleSelect({label, value, onChange, className, labelClassName}: { l
 }
 
 function AnimalsSearch() {
+  // @ts-ignore
   const {list} = useContext(ThemeContext);
+  // console.log(list);
 
   const [species, setSpecies] = useState<MultiValue<OptionType>>([
     {value: 'dog', label: 'Cachorro'},
@@ -80,13 +84,15 @@ function AnimalsSearch() {
 }
 
 function AnimalsList() {
+  // @ts-ignore
   const {list} = useContext(ThemeContext);
 
   return (
     <div>
       <Grid cols={3}>
         {
-          list.map((_, i) => (
+          // @ts-ignore
+          list.map((item, i) => (
             <div key={i}>
               <Modal
                 actionChildren={(
@@ -95,6 +101,7 @@ function AnimalsList() {
                     <div className="d-flex flex-column align-bottom justify-end flex-grow-1 z-1">
                       <div className="d-flex justify-content-between align-items-end gap-3 flex-wrap">
                         <div className="text-left">
+                          {JSON.stringify(item)}
                           <Title level={3} className={"font-hero-new"}>Alessandra</Title>
                           <span className={"p-0 m-0"}>Gato fêmea</span>
                         </div>
@@ -145,7 +152,13 @@ export default function Home() {
   }
 
   useEffect(() => {
-    // setList([])
+
+  }, []);
+
+  useEffect(() => {
+    axios.get(`${Content.Host()}/`).then((r) => {
+      console.log(r.data)
+    })
   }, []);
 
   return (

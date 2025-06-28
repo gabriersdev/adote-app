@@ -14,7 +14,7 @@ const Grid = ({children, cols = 1, gap = 4, className = "", rows = 1}: GridProps
   const gridRows = `grid-rows-${rows}`;
 
   return (
-    <div className={`grid grid-cols-1 sm:${gridCols} ${gridGap} ${gridRows} ${className}`}>
+    <div className={`grid lg:grid-cols-2 sm:grid-cols-3 ${gridGap} ${gridRows} ${className}`}>
       {children}
     </div>
   );
