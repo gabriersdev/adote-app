@@ -1,6 +1,6 @@
 import React, {useState} from "react";
-import Button from 'react-bootstrap/Button';
-import BSModal from 'react-bootstrap/Modal';
+import Button from "react-bootstrap/Button";
+import BSModal from "react-bootstrap/Modal";
 import Title from "@/components/ui/title";
 
 type Props = {

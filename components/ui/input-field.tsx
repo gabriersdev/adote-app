@@ -1,5 +1,5 @@
 import React from "react";
-import { Form } from "react-bootstrap";
+import {Form} from "react-bootstrap";
 import FormControlWrapper from "@/components/ui/form-control-wrapper";
 
 interface InputFieldProps {
@@ -15,18 +15,19 @@ interface InputFieldProps {
   className?: string;
 }
 
-const InputField: React.FC<InputFieldProps> = ({
-                                                 id,
-                                                 name = "",
-                                                 label,
-                                                 value,
-                                                 checked = false,
-                                                 onChange,
-                                                 type = "text",
-                                                 required = true,
-                                                 placeholder,
-                                                 className = "",
-                                               }) => {
+const InputField: React.FC<InputFieldProps> = (
+  {
+    id,
+    name = "",
+    label,
+    value,
+    checked = false,
+    onChange,
+    type = "text",
+    required = true,
+    placeholder,
+    className = "",
+  }) => {
   if (type === "checkbox" || type === "radio") {
     return (
       <Form.Check

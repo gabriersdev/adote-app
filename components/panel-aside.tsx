@@ -5,7 +5,7 @@ import moment from "moment";
 import React, {useEffect, useState} from "react";
 
 const Aside: React.FC = () => {
-  const [logNumber,setLogNumber] = useState("");
+  const [logNumber, setLogNumber] = useState("");
 
   useEffect(() => {
     setLogNumber(Math.ceil(new Date().getTime() * (Math.random() * 10)).toString().slice(-6));

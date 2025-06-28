@@ -22,8 +22,8 @@ export default function BootstrapClientLoader({children}: { children: React.Reac
       else a.target = "_blank";
 
       if (a.target === "_blank") a?.setAttribute("rel", "noopener noreferrer");
-    })
-  }, [])
+    });
+  }, []);
 
   useEffect(() => {
     updateTargetLinks();

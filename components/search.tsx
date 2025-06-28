@@ -3,23 +3,24 @@
 import React, {useEffect, useState} from "react";
 import Text from "@/components/ui/text";
 import Link from "next/link";
-import {useSearchParams} from 'next/navigation';
+import {useSearchParams} from "next/navigation";
 
 export default function Search() {
   const searchParams = useSearchParams();
-  const term = searchParams.get('term');
+  const term = searchParams.get("term");
   const [termSearch, setTermSearch] = useState<string>("");
   const [results, setResults] = useState<Array<any>>([])
 
   useEffect(() => {
     if (!term) setTermSearch("");
     else setTermSearch(decodeURIComponent(term.trim()));
+    setResults([])
   }, [term]);
 
   return (
     <>
       <Text as={"p"} color={"dark"} className={"font-hero-new"}>
-        {termSearch ? (<>Você pesquisou por {"\""}<b className={"capitalize"}>{termSearch}</b>{"\""}</>) : (<>Busque por um termo</>) }
+        {termSearch ? (<>Você pesquisou por {"\""}<b className={"capitalize"}>{termSearch}</b>{"\""}</>) : (<>Busque por um termo</>)}
       </Text>
       <div className={"flex flex-col gap-2"}>
         {

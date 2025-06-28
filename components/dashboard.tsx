@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Row,
   Col,
@@ -6,7 +6,7 @@ import {
   Card,
   Table,
   Dropdown
-} from 'react-bootstrap';
+} from "react-bootstrap";
 
 import moment from "moment";
 import "moment/locale/pt-br";
@@ -15,27 +15,27 @@ import Link from "next/link";
 import Aside from "@/components/panel-aside";
 import Header from "@/components/panel-header";
 
-moment.locale('pt-br');
+moment.locale("pt-br");
 
 interface Process {
   code: string;
   animal: string;
-  status: 'Em análise' | 'Concluído';
+  status: "Em análise" | "Concluído";
 }
 
 const processData: Process[] = [
-  {code: '000000000000', animal: 'Bernardo', status: 'Em análise'},
-  {code: '000000000000', animal: 'Cleiton', status: 'Concluído'},
-  {code: '000000000000', animal: 'Cacilda', status: 'Concluído'},
-  {code: '000000000000', animal: 'Hortência', status: 'Concluído'},
-  {code: '000000000000', animal: 'Cristina', status: 'Concluído'},
+  {code: "000000000000", animal: "Bernardo", status: "Em análise"},
+  {code: "000000000000", animal: "Cleiton", status: "Concluído"},
+  {code: "000000000000", animal: "Cacilda", status: "Concluído"},
+  {code: "000000000000", animal: "Hortência", status: "Concluído"},
+  {code: "000000000000", animal: "Cristina", status: "Concluído"},
 ];
 
 
 const MainContent: React.FC = () => {
-  const getStatusVariant = (status: Process['status']) => {
-    return status === 'Em análise' ? 'warning' : 'success';
-  }
+  // const getStatusVariant = (status: Process["status"]) => {
+  //   return status === "Em análise" ? "warning" : "success";
+  // }
 
   return (
     <Col md={9} lg={10} className="p-4 flex flex-col items-stretch justify-start">

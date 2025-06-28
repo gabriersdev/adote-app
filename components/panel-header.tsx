@@ -13,7 +13,6 @@ export default function Header() {
       </hgroup>
       <div className={"flex flex-wrap gap-1 items-end"}>
         <span>{nowHours > 18 ? "Boa noite" : nowHours > 12 ? "Boa tarde" : "Bom dia"},</span><b>Bruno</b>
-      {/*  Boa tarde*/}
       </div>
     </header>
   )

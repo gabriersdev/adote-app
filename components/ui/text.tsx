@@ -37,19 +37,20 @@ type Props = {
   as?: keyof JSX.IntrinsicElements;
 };
 
-const Text: React.FC<Props> = ({
-                                 children,
-                                 color = "body-secondary",
-                                 weigth,
-                                 italic,
-                                 underline,
-                                 monospace,
-                                 balance = true,
-                                 transform,
-                                 align,
-                                 className,
-                                 as,
-                               }) => {
+const Text: React.FC<Props> = (
+  {
+    children,
+    color = "body-secondary",
+    weigth,
+    italic,
+    underline,
+    monospace,
+    balance = true,
+    transform,
+    align,
+    className,
+    as,
+  }) => {
   const classes = clsx(
     color && `text-${color}`,
     weigth && `fw-${weigth}`,

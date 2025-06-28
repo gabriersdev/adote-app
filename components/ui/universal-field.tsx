@@ -12,7 +12,7 @@ export type FieldProps = {
   id: string;
   name: string;
   label: string;
-  type: 'text' | 'email' | 'password' | 'number' | 'textarea' | 'checkbox' | 'radio' | 'select';
+  type: "text" | "email" | "password" | "number" | "textarea" | "checkbox" | "radio" | "select";
   value?: any;
   checked?: boolean;
   placeholder?: string;
@@ -27,15 +27,15 @@ const UniversalField: React.FC<FieldProps> = ({
                                                 name,
                                                 label,
                                                 type,
-                                                value = '',
+                                                value = "",
                                                 checked = false,
                                                 placeholder,
                                                 required = true,
-                                                className = '',
+                                                className = "",
                                                 options = [],
                                                 onChange,
                                               }) => {
-  if (type === 'textarea') {
+  if (type === "textarea") {
     return (
       <Form.Group className={className} controlId={id}>
         <Label htmlFor={id} required={required}>{label}</Label>
@@ -51,7 +51,7 @@ const UniversalField: React.FC<FieldProps> = ({
     );
   }
 
-  if (type === 'checkbox') {
+  if (type === "checkbox") {
     return (
       <Form.Check
         id={id}
@@ -74,7 +74,7 @@ const UniversalField: React.FC<FieldProps> = ({
     );
   }
 
-  if (type === 'radio') {
+  if (type === "radio") {
     return (
       <Form.Group className={className}>
         <Label htmlFor={id} required={required}>{label}</Label>
@@ -94,7 +94,7 @@ const UniversalField: React.FC<FieldProps> = ({
     );
   }
 
-  if (type === 'select') {
+  if (type === "select") {
     return (
       <Form.Group className={className} controlId={id}>
         <Label htmlFor={id} required={required}>{label}</Label>

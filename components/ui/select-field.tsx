@@ -20,16 +20,17 @@ interface SelectFieldProps {
   placeholder?: string;
 }
 
-const SelectField: React.FC<SelectFieldProps> = ({
-                                                   id,
-                                                   label,
-                                                   options,
-                                                   value = "",
-                                                   onChange,
-                                                   required = false,
-                                                   className = "",
-                                                   placeholder = "Selecione...",
-                                                 }) => (
+const SelectField: React.FC<SelectFieldProps> = (
+  {
+    id,
+    label,
+    options,
+    value = "",
+    onChange,
+    required = false,
+    className = "",
+    placeholder = "Selecione...",
+  }) => (
   <FormControlWrapper id={id} label={label} required={required} className={className}>
     <Form.Select value={value} onChange={onChange} required={required}>
       <option value="">{placeholder}</option>

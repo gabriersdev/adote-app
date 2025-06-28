@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface StepperProps {
   steps: string[];
@@ -15,11 +15,11 @@ const Stepper: React.FC<StepperProps> = ({steps, currentStep}) => {
     <div className="w-full px-4 sm:px-8">
       <div className="relative">
         <div className="flex items-center justify-between">
-          <div className="absolute left-0 top-1/2 w-full h-0.5 bg-gray-300 transform -translate-y-1/2" style={{top: 'calc(1.75rem + 8px)'}}/>
+          <div className="absolute left-0 top-1/2 w-full h-0.5 bg-gray-300 transform -translate-y-1/2" style={{top: "calc(1.75rem + 8px)"}}/>
 
           <div
             className="absolute left-0 top-1/2 h-0.5 bg-blue-500 transform -translate-y-1/2 transition-all duration-500 ease-in-out"
-            style={{width: `${progressPercentage}%`, top: 'calc(1.75rem + 8px)'}}
+            style={{width: `${progressPercentage}%`, top: "calc(1.75rem + 8px)"}}
           />
         </div>
 
@@ -33,14 +33,14 @@ const Stepper: React.FC<StepperProps> = ({steps, currentStep}) => {
                 <p
                   className={`
                     txt-sm font-medium h-10 line-clamp-1 mb-0
-                    ${isActive ? 'text-blue-600' : ''}
-                    ${isCompleted ? 'text-gray-800' : 'text-gray-400'}
+                    ${isActive ? "text-blue-600" : ""}
+                    ${isCompleted ? "text-gray-800" : "text-gray-400"}
                   `}
                 >
                   {label}
                 </p>
 
-                <div className={`absolute top-[60%] w-2 h-2 mt-2 rounded-0 transition-all duration-300 ${isActive ? 'bg-blue-600 scale-110' : ''} ${isCompleted ? 'bg-blue-500' : 'bg-gray-300'}                  `}/>
+                <div className={`absolute top-[60%] w-2 h-2 mt-2 rounded-0 transition-all duration-300 ${isActive ? "bg-blue-600 scale-110" : ""} ${isCompleted ? "bg-blue-500" : "bg-gray-300"}                  `}/>
               </div>
             );
           })}

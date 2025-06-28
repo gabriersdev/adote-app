@@ -1,7 +1,7 @@
 "use client";
 
-import React, {useState, useCallback, ReactNode} from 'react';
-import {Button, OverlayTrigger, Tooltip} from 'react-bootstrap';
+import React, {useState, useCallback, ReactNode} from "react";
+import {Button, OverlayTrigger, Tooltip} from "react-bootstrap";
 
 /**
  * Tenta extrair uma representação de texto simples de um ReactNode.
@@ -10,18 +10,18 @@ import {Button, OverlayTrigger, Tooltip} from 'react-bootstrap';
  * @returns Uma string representando o conteúdo.
  */
 const extractTextFromChildren = (children: ReactNode): string => {
-  if (typeof children === 'string' || typeof children === 'number') {
+  if (typeof children === "string" || typeof children === "number") {
     return children.toString();
   }
   if (Array.isArray(children)) {
-    return children.map(extractTextFromChildren).join('');
+    return children.map(extractTextFromChildren).join("");
   }
   // @ts-ignore
   if (React.isValidElement(children) && children.props.children) {
     // @ts-ignore
     return extractTextFromChildren(children.props.children);
   }
-  return '';
+  return "";
 };
 
 interface ClipboardCopyProps {
@@ -34,13 +34,14 @@ interface ClipboardCopyProps {
   successDuration?: number;
 }
 
-const ClipboardCopy: React.FC<ClipboardCopyProps> = ({
-                                                       children,
-                                                       copyValue,
-                                                       tooltipText = 'Clique para copiar',
-                                                       successTooltipText = 'Conteúdo copiado!',
-                                                       successDuration = 2000,
-                                                     }) => {
+const ClipboardCopy: React.FC<ClipboardCopyProps> = (
+  {
+    children,
+    copyValue,
+    tooltipText = "Clique para copiar",
+    successTooltipText = "Conteúdo copiado!",
+    successDuration = 2000,
+  }) => {
   const [currentTooltipText, setCurrentTooltipText] = useState(tooltipText);
 
   const handleCopy = useCallback(async () => {
@@ -48,7 +49,7 @@ const ClipboardCopy: React.FC<ClipboardCopyProps> = ({
     const textToCopy = copyValue ?? extractTextFromChildren(children);
 
     if (!textToCopy) {
-      alert('ClipboardCopy: Nenhum texto para copiar.');
+      alert("ClipboardCopy: Nenhum texto para copiar.");
       return;
     }
 
@@ -65,8 +66,8 @@ const ClipboardCopy: React.FC<ClipboardCopyProps> = ({
       }, successDuration);
 
     } catch (err) {
-      alert('Falha ao copiar para a área de transferência: ' + err);
-      setCurrentTooltipText('Erro ao copiar! X5');
+      alert("Falha ao copiar para a área de transferência: " + err);
+      setCurrentTooltipText("Erro ao copiar! X5");
       setTimeout(() => {
         setCurrentTooltipText(tooltipText);
       }, successDuration);
@@ -89,7 +90,7 @@ const ClipboardCopy: React.FC<ClipboardCopyProps> = ({
         role="button"
         tabIndex={0}
         onKeyDown={(e) => {
-          if (e.key === 'Enter') handleCopy().then(() => {
+          if (e.key === "Enter") handleCopy().then(() => {
           })
         }}
       >

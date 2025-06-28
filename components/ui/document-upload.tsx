@@ -1,14 +1,14 @@
 // DocumentUpload.tsx
 import React, {useState, useRef, useEffect} from "react";
-import {Card, Button, Badge, Image, Tooltip, OverlayTrigger} from 'react-bootstrap';
-import {Plus, X} from 'react-bootstrap-icons';
+import {Card, Button, Badge, Image, Tooltip, OverlayTrigger} from "react-bootstrap";
+import {Plus, X} from "react-bootstrap-icons";
 import Text from "@/components/ui/text";
 import Title from "@/components/ui/title";
 
 interface UploadedFile {
   id: string;
   file: File;
-  preview: string; // URL do objeto para imagens, ou 'PDF' para PDFs
+  preview: string; // URL do objeto para imagens, ou "PDF" para PDFs
 }
 
 interface DocumentUploadProps {
@@ -24,7 +24,7 @@ const DocumentUpload: React.FC = ({title, subtitle}: DocumentUploadProps) => {
   useEffect(() => {
     return () => {
       files.forEach(file => {
-        if (file.preview !== 'PDF') {
+        if (file.preview !== "PDF") {
           URL.revokeObjectURL(file.preview);
         }
       });
@@ -40,11 +40,11 @@ const DocumentUpload: React.FC = ({title, subtitle}: DocumentUploadProps) => {
     if (!selectedFiles) return;
 
     const newFiles: UploadedFile[] = Array.from(selectedFiles).map(file => {
-      const isImage = file.type.startsWith('image/');
+      const isImage = file.type.startsWith("image/");
       return {
         id: `${file.name}-${Date.now()}`,
         file: file,
-        preview: isImage ? URL.createObjectURL(file) : 'PDF',
+        preview: isImage ? URL.createObjectURL(file) : "PDF",
       };
     });
 
@@ -52,13 +52,13 @@ const DocumentUpload: React.FC = ({title, subtitle}: DocumentUploadProps) => {
 
     // Limpa o valor do input para permitir o upload do mesmo arquivo novamente
     if (event.target) {
-      event.target.value = '';
+      event.target.value = "";
     }
   };
 
   const handleRemoveFile = (idToRemove: string) => {
     const fileToRemove = files.find(file => file.id === idToRemove);
-    if (fileToRemove && fileToRemove.preview !== 'PDF') {
+    if (fileToRemove && fileToRemove.preview !== "PDF") {
       URL.revokeObjectURL(fileToRemove.preview);
     }
     setFiles(files.filter(file => file.id !== idToRemove));
@@ -97,7 +97,7 @@ const DocumentUpload: React.FC = ({title, subtitle}: DocumentUploadProps) => {
                 <Text as={"p"} color={"body-secondary"} className={"font-normal"}>{subtitle}</Text>
               </Card.Subtitle>
             </div>
-            <Badge bg="primary" pill style={{fontSize: '1rem', padding: '0.5rem 0.8rem'}}>
+            <Badge bg="primary" pill style={{fontSize: "1rem", padding: "0.5rem 0.8rem"}}>
               {files.length}
             </Badge>
           </div>
@@ -105,7 +105,7 @@ const DocumentUpload: React.FC = ({title, subtitle}: DocumentUploadProps) => {
           <div className="upload-area">
             {files.map(uploadedFile => (
               <div key={uploadedFile.id} className="preview-card">
-                {uploadedFile.preview === 'PDF' ? (
+                {uploadedFile.preview === "PDF" ? (
                   <div className="pdf-preview">PDF</div>
                 ) : (
                   <Image src={uploadedFile.preview} className="preview-image" alt="Preview"/>
@@ -124,7 +124,7 @@ const DocumentUpload: React.FC = ({title, subtitle}: DocumentUploadProps) => {
             type="file"
             ref={fileInputRef}
             onChange={handleFileChange}
-            style={{display: 'none'}}
+            style={{display: "none"}}
             multiple
             accept=".jpg,.jpeg,.png,.pdf"
           />

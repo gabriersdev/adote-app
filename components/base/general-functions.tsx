@@ -1,7 +1,7 @@
 "use client";
 
 import {useEffect, useMemo, useState} from "react";
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router"
 import axios from "axios";
 
 export default function GeneralFunctions() {
@@ -48,9 +48,9 @@ export default function GeneralFunctions() {
     if (publicIp && window.location.hostname === "XXX") {
       try {
         axios.post(`${config.host}/api/logs/`, {
-          event_type: 'Acesss page',
+          event_type: "Acesss page",
           event_details: `Access URL: ${window.location.origin}${window.location.pathname}${window.location.search} ${new Date().getTime()}`,
-          os: navigator.userAgent.includes('Windows') ? 'Windows' : navigator.userAgent.includes('MacOS') ? 'MacOS' : navigator.userAgent.slice(0, 254),
+          os: navigator.userAgent.includes("Windows") ? "Windows" : navigator.userAgent.includes("MacOS") ? "MacOS" : navigator.userAgent.slice(0, 254),
           browser: navigator.userAgent.slice(0, 254),
           ip_address: publicIp,
           user_agent: navigator.userAgent.slice(0, 254),
