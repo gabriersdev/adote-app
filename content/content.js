@@ -9,6 +9,7 @@ export default class Content {
     return {
       "name": "Abrigo",
       "description": "",
+      "email": "abrigo@gmail.com",
     }
   }
   

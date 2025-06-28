@@ -5,8 +5,8 @@ import Main from "@/components/layout/main";
 import TitleContainer from "@/components/layout/title-container";
 import Text from "@/components/ui/text";
 import Title from "@/components/ui/title";
-import Content from "@/content/content"
-import {Card, ListGroup} from 'react-bootstrap';
+import Content from "@/content/content";
+import {ListGroup} from 'react-bootstrap';
 
 // export const metadata = {
 //   title: `Termos de privacidade - ${Content.UI()["app-name"]}`,
@@ -96,7 +96,7 @@ export default function Page() {
               <ListGroup.Item>A revogação do consentimento.</ListGroup.Item>
             </ListGroup>
             <Text as={"p"} color={"body"} className={"m-0 mt-3 text-body"} balance={false}>
-              Para exercer seus direitos, entre em contato conosco através do e-mail: <strong>{Content.Abrigo().email}</strong>
+              Para exercer seus direitos, entre em contato conosco através do e-mail: <strong>{Content.Abrigo()["email"]}</strong>
             </Text>
 
             <Title level={4} className="mt-4 mb-4">6. Alterações a Esta Política</Title>
