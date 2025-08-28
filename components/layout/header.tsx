@@ -5,8 +5,11 @@ import {Form, FormControl, Navbar} from "react-bootstrap";
 import Link from "next/link";
 import CustomButton from "@/components/ui/custom-button";
 import Content from "@/content/content";
+import {useRouter} from "next/navigation";
 
 export default function Header() {
+  const router = useRouter();
+  
   const items = useMemo(() => {
     return [
       {"label": "Início", "link": "/"},
@@ -23,7 +26,11 @@ export default function Header() {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(new FormData(event.currentTarget));
+    // @ts-ignore
+    const data = new FormData(event.target);
+    // @ts-ignore
+    const searchInput = (data.get("search-input") || "")?.trim();
+    if (searchInput) router.push(`/search/?s=${searchInput}`);
   };
 
   return (
@@ -41,7 +48,7 @@ export default function Header() {
           <div>
             <Form method="POST" onSubmit={handleSubmit}>
               <legend className={"flex gap-2 m-0 p-0"}>
-                <FormControl type={"text"} value={input} onChange={handleChange} placeholder={"Digite..."} required={true}></FormControl>
+                <FormControl type={"text"} value={input} id={"search-input"} name={"search-input"} autoComplete={"off"} onChange={handleChange} placeholder={"Digite..."} required={true}></FormControl>
                 <CustomButton type={"submit"} variant={"primary"} className={"font-hero-new"} text={"Pesquisar"}></CustomButton>
               </legend>
             </Form>

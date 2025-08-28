@@ -7,14 +7,16 @@ import {useSearchParams} from "next/navigation";
 
 export default function Search() {
   const searchParams = useSearchParams();
-  const term = searchParams.get("term");
+  const term = searchParams.get("s");
   const [termSearch, setTermSearch] = useState<string>("");
   const [results, setResults] = useState<Array<any>>([])
 
   useEffect(() => {
     if (!term) setTermSearch("");
     else setTermSearch(decodeURIComponent(term.trim()));
-    setResults([])
+    
+    // TODO - fazer a pesquisa aqui
+    setResults([]);
   }, [term]);
 
   return (

@@ -12,7 +12,7 @@ export const metadata = {
 export default function Page() {
   return (
     <Main className={"flex flex-col gap-5"}>
-      <TitleContainer>Sobre nós</TitleContainer>
+      <TitleContainer marginBottom={true}>Sobre nós</TitleContainer>
       {
         [
           "Aqui no abrigo, cada dia é dedicado a cuidar, proteger e dar uma nova chance para animais que um dia foram abandonados, sofreram maus-tratos ou simplesmente se perderam. Nosso trabalho vai muito além de oferecer abrigo temporário - buscamos garantir saúde, bem-estar e amor até que cada um encontre um lar definitivo.",

@@ -8,6 +8,7 @@ import {Button, Form} from "react-bootstrap";
 import DynamicForm from "@/components/ui/dynamic-form";
 import Text from "@/components/ui/text";
 import Content from "@/content/content";
+import {useRouter} from "next/navigation";
 
 // export const metadata = {
 //   title: `Painel - ${Content.UI()["app-name"]}`,
@@ -187,15 +188,14 @@ export default function Page() {
   const [content, setContent] = useState(<></>);
   // const [userStatus, setUserStatus] = useState("createAcc")
   // const [userStatus, setUserStatus] = useState("unlogged")
-  const [userStatus, setUserStatus] = useState("confirmAcc")
+  const [userStatus, setUserStatus] = useState("");
+  const router = useRouter();
 
   useEffect(() => {
     if (!userStatus) return;
     else if (userStatus === "unlogged") setContent(<Login setUserStatus={setUserStatus}/>)
     else if (userStatus == "createAcc") setContent(<CreateAccount setUserStatus={setUserStatus}/>)
     else if (userStatus == "confirmAcc") setContent(<ConfirmAccount/>)
-
-    return () => setContent(<></>);
   }, [userStatus])
 
   useEffect(() => {
@@ -203,6 +203,8 @@ export default function Page() {
     document.title = `Painel - ${Content.UI()["app-name"]}`
   }, []);
 
+  if (!userStatus) return router.push("/panel/dashboard");
+  
   return (
     <Main className={"flex flex-col items-center gap-5"}>
       {content}

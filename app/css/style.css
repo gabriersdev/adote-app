@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 
+@import './fonts.css';
+
 @import './additional-styles/utility-patterns.css' layer(components);
 @import './additional-styles/theme.css';
 

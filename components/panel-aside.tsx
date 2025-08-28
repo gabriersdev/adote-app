@@ -3,11 +3,14 @@
 import {Button, Col, Nav} from "react-bootstrap";
 import moment from "moment";
 import React, {useEffect, useState} from "react";
+import Content from "@/content/content";
+import Link from "next/link";
 
 const Aside: React.FC = () => {
   const [logNumber, setLogNumber] = useState("");
 
   useEffect(() => {
+    // Apenas para mostrar log - no funcionamento deve ser id do usuário
     setLogNumber(Math.ceil(new Date().getTime() * (Math.random() * 10)).toString().slice(-6));
   }, []);
 
@@ -17,7 +20,7 @@ const Aside: React.FC = () => {
         <div className="flex gap-2 items-center">
           <span className={"h-[36px] w-[36px] bg-gray-300 block rounded"}></span>
           <div>
-            <span className={""}>Nome Abrigo</span>
+            <span className={""}>{Content.Abrigo().name}</span>
           </div>
         </div>
 
@@ -26,11 +29,11 @@ const Aside: React.FC = () => {
           <Nav className="flex-column flex">
             {
               [
-                ["Processos", "/panel/dashboard"]
+                ["Processos", "/panel/dashboard/process"]
               ].map((item, i) => {
                 return (
                   <Nav.Item className={"m-0 p-0"} key={i}>
-                    <Nav.Link role={"listitem"} eventKey={item[1]} className={"m-0 p-0 btn btn-default"}>
+                    <Nav.Link as={Link} role={"listitem"} href={item[1]} eventKey={i} className={"m-0 p-0 btn btn-default"}>
                     <span className={"inline-block px-3 py-1.5 bg-green-300 text-body rounded-sm"}>
                       {item[0]}
                     </span>
