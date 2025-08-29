@@ -102,7 +102,7 @@ function AnimalsList() {
                     <div className="d-flex flex-column align-bottom justify-end flex-grow-1 z-1">
                       <div className="d-flex justify-content-between align-items-end gap-3 flex-wrap">
                         <div className="text-left">
-                          {JSON.stringify(item)}
+                          <span className={"hidden"}>{JSON.stringify(item)}</span>
                           <Title level={3} className={"font-hero-new"}>Alessandra</Title>
                           <span className={"p-0 m-0"}>Gato fêmea</span>
                         </div>
