@@ -109,10 +109,10 @@
 }
 
 .font-inter-tight {
-  font-family: "Inter Tight", "Inter", sans-serif;
+  font-family: "Inter Tight", "Inter", sans-serif !important;
 }
 
 .font-hero-new,
 .font-hero-new * {
-  font-family: "Hero New", sans-serif;
+  font-family: "Hero New", sans-serif !important;
 }

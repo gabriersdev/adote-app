@@ -38,9 +38,9 @@ export default function Page() {
 		const breadcrumbItems = [["Processos", path.split("process")?.[0] + "process" || path], ["Detalhe", path]];
 		
 		return (
-			<Col md={9} lg={10} className="p-4 flex flex-col items-stretch justify-start">
+			<Col md={9} lg={10} className="py-5 flex flex-col items-stretch justify-start">
 				<div className={"flex flex-col items-center"}>
-					<main className={"min-w-[70vw] flex flex-col gap-4"}>
+					<main className={"min-w-[1120px] flex flex-col gap-4"}>
 						<div className="flex flex-wrap gap-1">
 							{
 								breadcrumbItems.map(
@@ -56,7 +56,7 @@ export default function Page() {
 						</div>
 						<section className={"border border-gray-200 p-3 rounded-sm flex flex-col items gap-5"}>
 							<div className="flex flex-wrap gap-3 justify-between">
-								<TitleContainer level={4} className={"m-0"} marginBottom={false}>
+								<TitleContainer level={4} className={"mb-0 pb-0"} marginBottom={false}>
 									<div className={"flex flex-col gap-1 items-start"}>
 										<span>Detalhe</span>
 										<span>{id}</span>
@@ -105,7 +105,7 @@ export default function Page() {
 							]} currentStep={2}/>
 							
 							<div className={"flex flex-col items-start gap-3"}>
-								<Title level={6} className={"m-0"}>Histórico</Title>
+								<Title level={6} className={"mb-0 pb-0"}>Histórico</Title>
 								<ol className={"mb-1 p-0"}>
 									<li className={"mb-3"}>
 										<div>

@@ -27,13 +27,20 @@ export default function GetProcess() {
   return (
     <Card className={""}>
       <Card.Header as="div" className={"border-bottom-0 bg-body py-4 flex flex-col gap-2"}>
-        <Card.Title as="h6" className="mb-0 inter capitalize">{moment().format("dddd")}</Card.Title>
+        <Card.Title as="h6" className="mb-0 capitalize">{moment().format("dddd")}</Card.Title>
         <Card.Subtitle className="text-muted">{moment().format("DD [de] MMMM")}</Card.Subtitle>
       </Card.Header>
       <Card.Body>
-        <Card.Text as="h6" className="mb-3 text-body-secondary">
-          Seus processos
-        </Card.Text>
+        <div className={"d-flex justify-content-between align-items-center gap-3"}>
+          <Card.Text as="h6" className="mb-3 text-body-secondary">
+            Seus processos
+          </Card.Text>
+          <Link href={"#"}>
+            <Button role={"link"} variant="light" className={"rounded-pill px-3 py-2"}>
+              <span className={"text-body-secondary"}>Ver todos</span>
+            </Button>
+          </Link>
+        </div>
         <Table responsive hover>
           <thead>
           <tr>

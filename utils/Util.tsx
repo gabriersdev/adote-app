@@ -84,4 +84,33 @@ export default class Util {
       return part;
     });
   };
+  
+  /**
+   * Censura um endereço de e-mail, mostrando apenas os primeiros caracteres da parte local.
+   * * @param email O endereço de e-mail a ser censurado.
+   * @param email Email
+   * @param charsToShow O número de caracteres a serem exibidos no início (padrão: 3).
+   * @returns O e-mail censurado ou uma mensagem de erro se o formato for inválido.
+   */
+  static censorEmail = (email: string, charsToShow: number = 3): string => {
+    // 1. Validação básica para garantir que é uma string e contém '@'
+    if (!email || !email.includes('@')) {
+      return 'Email inválido';
+    }
+    
+    // 2. Divide o email em "parte local" e "domínio"
+    const atIndex = email.lastIndexOf('@');
+    const localPart = email.substring(0, atIndex);
+    const domain = email.substring(atIndex); // O domínio já inclui o '@'
+    
+    // 3. Pega a parte que ficará visível (ex: "jan" de "janaina")
+    const visiblePart = localPart.slice(0, charsToShow);
+    
+    // 4. Cria a parte censurada com asteriscos.
+    // Usamos Math.max para evitar um número negativo se a parte local for muito curta.
+    const censoredPart = '*'.repeat(Math.max(0, localPart.length - charsToShow));
+    
+    // 5. Junta tudo e retorna o resultado
+    return `${visiblePart}${censoredPart}${domain}`;
+  };
 }

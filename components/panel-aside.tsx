@@ -15,7 +15,7 @@ const Aside: React.FC = () => {
   }, []);
 
   return (
-    <Col as={"aside"} md={3} lg={2} className="h-[80vh] col-md-3 p-0 bg-body-tertiary border border-top-0 border-bottom-0">
+    <Col as={"aside"} md={3} lg={2} className="min-h-[80vh] col-md-3 p-0 bg-body-tertiary border border-top-0 border-bottom-0">
       <div className="flex flex-column items-start gap-5 h-full w-full px-6 py-6">
         <div className="flex gap-2 items-center">
           <span className={"h-[36px] w-[36px] bg-gray-300 block rounded"}></span>
@@ -25,16 +25,20 @@ const Aside: React.FC = () => {
         </div>
 
         <div className="flex gap-3 flex-col">
-          <span className={"text-body font-semibold"}>Painel</span>
-          <Nav className="flex-column flex">
+          <Link className={"text-body font-semibold"} href={"/panel"}>Painel</Link>
+          <Nav className="flex-column d-flex align-items-start gap-3">
             {
               [
-                ["Processos", "/panel/dashboard/process"]
+                ["Dashboard", "/panel/dashboard"],
+                ["Processos", "/panel/dashboard/process"],
+                ["Agendamentos", "/panel/dashboard/schedules"],
+                ["Animais", "/panel/dashboard/animals"],
+                ["Pessoas", "/panel/dashboard/users"],
               ].map((item, i) => {
                 return (
-                  <Nav.Item className={"m-0 p-0"} key={i}>
+                  <Nav.Item className={"m-0"} key={i}>
                     <Nav.Link as={Link} role={"listitem"} href={item[1]} eventKey={i} className={"m-0 p-0 btn btn-default"}>
-                    <span className={"inline-block px-3 py-1.5 bg-green-300 text-body rounded-sm"}>
+                    <span className={"inline-block text-body rounded-sm" + "xpx-3 xbg-green-300"}>
                       {item[0]}
                     </span>
                     </Nav.Link>
