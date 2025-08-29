@@ -20,34 +20,26 @@ import GetProcess from "@/components/get-process";
 // };
 
 const propsLink: { target: string; rel: string } = {
-	target: "_blank",
-	rel: "noopener noreferrer",
+  target: "_blank",
+  rel: "noopener noreferrer",
 }
 
 export default function Page() {
-	const params = useParams();
-	const id = params.id;
-	
-	useEffect(() => {
-		if (!document) return;
-		document.title = `Painel de Processos ${Content.UI()["app-name"]}`;
-	}, []);
-	
-	const MainContent: React.FC = () => {
-		const breadcrumbItems = ["Processos"];
-		
-		return (
-			<></>
-		);
-	};
-	
-	return (
-		<>
-			<Row>
-				<Header/>
-				<Aside/>
-				<MainContent/>
-			</Row>
-		</>
-	);
+  const params = useParams();
+  const id = params.id;
+  
+  useEffect(() => {
+    if (!document) return;
+    document.title = `Painel de Processos ${Content.UI()["app-name"]}`;
+  }, []);
+  
+  const MainContent: React.FC = () => {
+    const breadcrumbItems = ["Processos"];
+    
+    return (
+      <></>
+    );
+  };
+  
+  return <MainContent/>;
 }

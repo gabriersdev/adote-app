@@ -166,7 +166,7 @@ export default function Home() {
     <Main>
       <div className={"flex flex-col gap-4"}>
         <div className="flex flex-col gap-4 pb-4 border-bottom border-secondary-subtle">
-          <Title level={2}>Seus processos</Title>
+          <Title level={2} className={"mb-0 pb-0"}>Seus processos</Title>
           <Grid cols={2}>
             <Card>
               <Card.Header className={"bg-body-secondary"}>
@@ -188,7 +188,7 @@ export default function Home() {
         </div>
         <div className="flex flex-col gap-4">
           <ThemeContext.Provider value={contextData}>
-            <Title level={2}>Animais em adoção</Title>
+            <Title level={2} className={"mb-0 pb-0"}>Animais em adoção</Title>
             <AnimalsSearch/>
             <AnimalsList/>
           </ThemeContext.Provider>

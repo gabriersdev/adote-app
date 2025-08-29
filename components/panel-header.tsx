@@ -1,3 +1,5 @@
+"use client";
+
 import Title from "@/components/ui/title";
 import React from "react";
 import moment from "moment";

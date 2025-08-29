@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack --a",
-    "build": "next build --a",
-    "build:nl": "npm run -- build -- --no-lint --a",
-    "start": "next start --a",
-    "lint": "next lint --a",
+    "dev": "next dev",
+    "build": "next build",
+    "build:nl": "npm run --no-lint",
+    "start": "next start",
+    "lint": "next lint",
     "lint:fix": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix"
   },
   "dependencies": {
