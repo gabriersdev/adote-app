@@ -55,20 +55,20 @@ function AnimalsSearch() {
   // @ts-ignore
   const {list} = useContext(ThemeContext);
   // console.log(list);
-
+  
   const [species, setSpecies] = useState<MultiValue<OptionType>>([
     {value: 'dog', label: 'Cachorro'},
     {value: 'cat', label: 'Gato'},
   ]);
-
+  
   const genderOptions = [
     {label: "Macho", value: "Macho"},
     {label: "Fêmea", value: "Fêmea"},
     {label: "Todos", value: "Todos"}
   ];
-
+  
   const [gender, setGender] = useState<string>("");
-
+  
   return (
     <div>
       <div className="bg-body-secondary d-flex justify-content-between align-items-center w-full px-4 py-3 border border-secondary-subtle flex-wrap gap-3">
@@ -86,13 +86,14 @@ function AnimalsSearch() {
 function AnimalsList() {
   // @ts-ignore
   const {list} = useContext(ThemeContext);
-
+  
   return (
     <div>
       <Grid cols={3}>
         {
           // @ts-ignore
-          list.map((item, i) => (
+          // list
+          Array.from({length: 3}, (v, i) => v +1).map((item, i) => (
             <div key={i}>
               <Modal
                 actionChildren={(
@@ -145,22 +146,22 @@ function AnimalsList() {
 
 export default function Home() {
   const [list, setList] = useState<Array<any>>([])
-
+  
   const contextData = {
     list,
     setList
   }
-
+  
   useEffect(() => {
-
+  
   }, []);
-
+  
   useEffect(() => {
     axios.get(`${Content.Host()}/`).then((r) => {
       console.log(r.data)
     })
   }, []);
-
+  
   return (
     <Main>
       <div className={"flex flex-col gap-4"}>
