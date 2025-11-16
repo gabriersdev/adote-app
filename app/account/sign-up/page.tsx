@@ -1,6 +1,10 @@
 "use client";
 
-import React, from "react";
+import React, {useState} from "react";
+import Content from "@/content/content";
+import {Button, Form} from "react-bootstrap";
+import Title from "@/components/ui/title";
+import TitleContainer from "@/components/layout/title-container";
 // import Content from "@/content/content";
 
 // export const metadata = {
@@ -8,7 +12,8 @@ import React, from "react";
 //   description: "",
 // };
 
-export default function Login({setUserStatus}: {setUserStatus: Dispatch<SetStateAction<string>>}) {
+// @ts-ignore
+export default function Login({setUserStatus}: { setUserStatus: Dispatch<SetStateAction<string>> }) {
   const [formData, setFormData] = useState({});
   
   const unloggedFields = [
@@ -21,14 +26,14 @@ export default function Login({setUserStatus}: {setUserStatus: Dispatch<SetState
     // Se o e for um evento de input/select/textarea normal:
     if (e?.target) {
       const {name, value} = e.target;
-      setFormData((prevData) => ({
+      setFormData((prevData: any) => ({
         ...prevData,
         [name]: value,
       }));
     } else {
       // Caso seja um objeto custom (exemplo no checkbox)
       const {name, value} = e;
-      setFormData((prevData) => ({
+      setFormData((prevData: any) => ({
         ...prevData,
         [name]: value,
       }));
@@ -48,7 +53,9 @@ export default function Login({setUserStatus}: {setUserStatus: Dispatch<SetState
       <div className={"flex flex-col gap-5"}>
         <div className={"flex flex-wrap justify-between gap-4 items-center"}>
           <Title level={3} className={""}>Login</Title>
-          <Button role={"link"} variant={"outline-info"} className={"border-0 p-0 m-0 font-hero-new bg-transparent text-primary"} onClick={() => {setUserStatus("createAcc")}}>Criar conta</Button>
+          <Button role={"link"} variant={"outline-info"} className={"border-0 p-0 m-0 font-hero-new bg-transparent text-primary"} onClick={() => {
+            setUserStatus("createAcc")
+          }}>Criar conta</Button>
         </div>
         <Form onSubmit={handleSubmit} className={"flex flex-col gap-3"}>
           {/*@ts-ignore*/}
@@ -56,7 +63,7 @@ export default function Login({setUserStatus}: {setUserStatus: Dispatch<SetState
           <div className={"flex flex-wrap justify-between gap-4 items-center"}>
             <Button variant={"primary"} type={"submit"} className={"font-hero-new"}>Entrar</Button>
             <Button variant={"outline-info"} className={"border-0 p-0 m-0 font-hero-new bg-transparent text-primary"} onClick={() => {
-              alert("Envie um e-mail para devgabrielribeiro@gmail.com, informando o seu endereço e-mail e a última senha que você se recorda, para recuperar a sua conta.")
+              alert(`Envie um e-mail para ${Content.DevInfos()["email"]}, informando o seu endereço e-mail e a última senha que você se recorda, para recuperar a sua conta.`)
             }}>Esqueci a senha</Button>
           </div>
         </Form>

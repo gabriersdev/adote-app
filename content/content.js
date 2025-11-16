@@ -8,8 +8,8 @@ export default class Content {
   static Abrigo() {
     return {
       "name": "Abrigo",
-      "description": "",
-      "email": "abrigo@gmail.com",
+      "description": "Aqui, cada vida importa. Somos um abrigo dedicado a resgatar, recuperar e proteger animais em situação de vulnerabilidade. Oferecemos cuidado, segurança e afeto até que encontrem famílias dispostas a dar o amor que merecem. Acreditamos em segundas chances - e aqui elas começam.",
+      "email": "suporte@lts.app.br",
     }
   }
   
@@ -23,5 +23,11 @@ export default class Content {
   
   static Host() {
     return window.location.hostname === "localhost" ? "http://localhost:3001" : ""
+  }
+  
+  static DevInfos() {
+    return {
+      "email": "gabriel@lts.app.br"
+    }
   }
 }

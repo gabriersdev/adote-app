@@ -30,7 +30,7 @@ export default function Page() {
                 item[0] === "tel" ? `tel:${item[1]}` :
                   item[0] === "mail" ? `mailto:${item[1]}` :
                     item[0] === "address" ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item[1])}` :
-                      ''
+                      '#0'
               }>
                 <div className={"text-teal-500"}>
                   {

@@ -15,11 +15,11 @@ export default function Page() {
     <Main className={"flex flex-col gap-5 items-stretch"}>
       <TitleContainer>Suporte</TitleContainer>
       <section>
-        <Link href={"mailto:devgabrielribeiro@gmail.com"}>
+        <Link href={`mailto:${Content.DevInfos()["email"]}`}>
           <div className={"border rounded flex flex-col bg-body p-3 m-0 font-hero-new"}>
             <b className={"text-body"}>Gabriel Ribeiro - desenvolvedor</b>
             <div className={"text-secondary"}>
-              devgabrielribeiro@gmail.com
+              {Content.DevInfos()["email"]}
             </div>
           </div>
         </Link>

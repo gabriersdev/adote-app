@@ -51,7 +51,7 @@ const Aside: React.FC = () => {
 
         <div className="mt-auto">
           <Button role={"link"} onClick={() => {
-            window.open("mailto:devgabrielribeiro@gmail.com")
+            window.open(`mailto:${Content.DevInfos()["email"]}`)
           }} variant="warning" className="w-100">Reportar falha</Button>
           <div className="text-muted mt-2">
             <div>LOG E{logNumber}</div>

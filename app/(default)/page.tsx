@@ -14,6 +14,7 @@ import {Button, Card} from "react-bootstrap";
 import {createContext, useContext} from "react";
 import axios from "axios";
 import Content from "@/content/content";
+import Container from "@/components/ui/container";
 
 // export const metadata = {
 //   title: "Home",
@@ -93,7 +94,7 @@ function AnimalsList() {
         {
           // @ts-ignore
           // list
-          Array.from({length: 3}, (v, i) => v +1).map((item, i) => (
+          Array.from({length: 3}, (v, i) => v + 1).map((item, i) => (
             <div key={i}>
               <Modal
                 actionChildren={(
@@ -163,37 +164,60 @@ export default function Home() {
   }, []);
   
   return (
-    <Main>
-      <div className={"flex flex-col gap-4"}>
-        <div className="flex flex-col gap-4 pb-4 border-bottom border-secondary-subtle">
-          <Title level={2} className={"mb-0 pb-0"}>Seus processos</Title>
-          <Grid cols={2}>
-            <Card>
-              <Card.Header className={"bg-body-secondary"}>
-                <span className={"font-semibold"}>Processo 12345678909</span>
-              </Card.Header>
-              <Card.Body className={"flex flex-col items-start gap-3"}>
-                <Title level={3}>Seu processo de adoção está em andamento</Title>
-                <div>
-                  <span className={"text-muted"}>Status:</span>
-                  {" "}
-                  <span>Aguardando análise</span>
-                </div>
-                <Button variant={"primary"} className={"font-hero-new"}>
-                  Acompanhar processo
-                </Button>
-              </Card.Body>
-            </Card>
-          </Grid>
-        </div>
-        <div className="flex flex-col gap-4">
-          <ThemeContext.Provider value={contextData}>
-            <Title level={2} className={"mb-0 pb-0"}>Animais em adoção</Title>
-            <AnimalsSearch/>
-            <AnimalsList/>
-          </ThemeContext.Provider>
-        </div>
+    <>
+      <div className={"bg-green-950"} style={{
+        background: "url('/images/banner.png')",
+        backgroundSize: "cover"
+      }}>
+        <Container>
+          <div className={"min-h-screen d-flex flex-column justify-between"}>
+            <div className={"d-flex justify-end gap-2 font-hero-new"}>
+              <Button variant={"primary"} href={"#"}>Fazer login</Button>
+              <Button variant={"danger"} href={"#"}>Criar conta</Button>
+            </div>
+            <div className={"text-white d-flex flex-column gap-3"}>
+              <Title level={1} className={"mb-0 pb-0 fw-bold fs-1"}>
+                Adote.
+              </Title>
+              <p className={"m-0 p-0 font-hero-new"}>
+                Animais de rua estão a sua espera
+              </p>
+            </div>
+          </div>
+        </Container>
       </div>
-    </Main>
+      <Main>
+        <div className={"flex flex-col gap-4"}>
+          <div className="flex flex-col gap-4 pb-4 border-bottom border-secondary-subtle">
+            <Title level={2} className={"mb-0 pb-0"}>Seus processos</Title>
+            <Grid cols={2}>
+              <Card>
+                <Card.Header className={"bg-body-secondary"}>
+                  <span className={"font-semibold"}>Processo 12345678909</span>
+                </Card.Header>
+                <Card.Body className={"flex flex-col items-start gap-3"}>
+                  <Title level={3}>Seu processo de adoção está em andamento</Title>
+                  <div>
+                    <span className={"text-muted"}>Status:</span>
+                    {" "}
+                    <span>Aguardando análise</span>
+                  </div>
+                  <Button variant={"primary"} className={"font-hero-new"}>
+                    Acompanhar processo
+                  </Button>
+                </Card.Body>
+              </Card>
+            </Grid>
+          </div>
+          <div className="flex flex-col gap-4">
+            <ThemeContext.Provider value={contextData}>
+              <Title level={2} className={"mb-0 pb-0"}>Animais em adoção</Title>
+              <AnimalsSearch/>
+              <AnimalsList/>
+            </ThemeContext.Provider>
+          </div>
+        </div>
+      </Main>
+    </>
   );
 }
