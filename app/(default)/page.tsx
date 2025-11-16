@@ -15,6 +15,7 @@ import {createContext, useContext} from "react";
 import axios from "axios";
 import Content from "@/content/content";
 import Container from "@/components/ui/container";
+import Link from "next/link";
 
 // export const metadata = {
 //   title: "Home",
@@ -172,8 +173,12 @@ export default function Home() {
         <Container>
           <div className={"min-h-screen d-flex flex-column justify-between"}>
             <div className={"d-flex justify-end gap-2 font-hero-new"}>
-              <Button variant={"primary"} href={"#"}>Fazer login</Button>
-              <Button variant={"danger"} href={"#"}>Criar conta</Button>
+              <Link href={"/account/sign-up"}>
+                <Button variant={"primary"} href={"/account/sign-in"}>Fazer login</Button>
+              </Link>
+              <Link href={"/account/sign-up"}>
+                <Button variant={"danger"}>Criar conta</Button>
+              </Link>
             </div>
             <div className={"text-white d-flex flex-column gap-3"}>
               <Title level={1} className={"mb-0 pb-0 fw-bold fs-1"}>

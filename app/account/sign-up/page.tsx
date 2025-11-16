@@ -5,6 +5,8 @@ import Content from "@/content/content";
 import {Button, Form} from "react-bootstrap";
 import Title from "@/components/ui/title";
 import TitleContainer from "@/components/layout/title-container";
+import DynamicForm from "@/components/ui/dynamic-form";
+import Link from "next/link";
 // import Content from "@/content/content";
 
 // export const metadata = {
@@ -52,10 +54,10 @@ export default function Login({setUserStatus}: { setUserStatus: Dispatch<SetStat
       <TitleContainer>Acesse o portal de adoção do Abrigo</TitleContainer>
       <div className={"flex flex-col gap-5"}>
         <div className={"flex flex-wrap justify-between gap-4 items-center"}>
-          <Title level={3} className={""}>Login</Title>
-          <Button role={"link"} variant={"outline-info"} className={"border-0 p-0 m-0 font-hero-new bg-transparent text-primary"} onClick={() => {
-            setUserStatus("createAcc")
-          }}>Criar conta</Button>
+          <Title level={3} className={"mb-0 pb-0"}>Login</Title>
+          <Link href={"/account/sign-in"}>
+            <Button role={"link"} variant={"outline-info"} className={"border-0 p-0 m-0 font-hero-new bg-transparent text-primary"}>Criar conta</Button>
+          </Link>
         </div>
         <Form onSubmit={handleSubmit} className={"flex flex-col gap-3"}>
           {/*@ts-ignore*/}

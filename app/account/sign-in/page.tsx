@@ -1,6 +1,11 @@
 "use client";
 
-import React, from "react";
+import React, {Dispatch, SetStateAction, useState} from "react";
+import TitleContainer from "@/components/layout/title-container";
+import Title from "@/components/ui/title";
+import {Button, Form} from "react-bootstrap";
+import DynamicForm from "@/components/ui/dynamic-form";
+import Link from "next/link";
 // import Content from "@/content/content";
 
 // export const metadata = {
@@ -8,6 +13,7 @@ import React, from "react";
 //   description: "",
 // };
 
+// @ts-ignore
 export default function CreateAccount({setUserStatus}: { setUserStatus: Dispatch<SetStateAction<string>> }) {
   const [formData, setFormData] = useState({});
   
@@ -43,12 +49,13 @@ export default function CreateAccount({setUserStatus}: { setUserStatus: Dispatch
     // aqui você pode enviar os dados para API, etc
   };
   
+  // @ts-ignore
   return (
     <div className={"max-w-1/2 mx-auto"}>
       <TitleContainer>Crie uma conta no portal de adoção</TitleContainer>
       <div className={"flex flex-col gap-5"}>
         <div className={"flex flex-wrap justify-between gap-4"}>
-          <Title level={3} className={""}>Criar conta</Title>
+          <Title level={3} className={"mb-0 pb-0"}>Criar conta</Title>
         </div>
         <Form onSubmit={handleSubmit} className={"flex flex-col gap-3"}>
           {/*@ts-ignore*/}
@@ -59,9 +66,9 @@ export default function CreateAccount({setUserStatus}: { setUserStatus: Dispatch
         </Form>
         <div className={"text-center"}>
           <span className={"mb-0 font-hero-new d-inline-block me-1"}>Já possui conta?</span>
-          <Button role={"link"} type={"button"} variant={"outline-info"} className={"border-0 p-0 m-0 font-hero-new bg-transparent text-primary"} onClick={() => {
-            setUserStatus("unlogged");
-          }}>Faça o login</Button>
+          <Link href={"/account/sign-up"}>
+            <Button role={"link"} type={"button"} variant={"outline-info"} className={"border-0 p-0 m-0 font-hero-new bg-transparent text-primary"}>Faça o login</Button>
+          </Link>
         </div>
       </div>
     </div>
