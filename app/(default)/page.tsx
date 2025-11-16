@@ -174,7 +174,7 @@ export default function Home() {
           <div className={"min-h-screen d-flex flex-column justify-between"}>
             <div className={"d-flex justify-end gap-2 font-hero-new"}>
               <Link href={"/account/sign-up"}>
-                <Button variant={"primary"} href={"/account/sign-in"}>Fazer login</Button>
+                <Button variant={"primary"}>Fazer login</Button>
               </Link>
               <Link href={"/account/sign-up"}>
                 <Button variant={"danger"}>Criar conta</Button>

@@ -1,6 +1,5 @@
 "use client";
 
-import Content from "@/content/content";
 import {useRouter} from "next/navigation";
 import {useEffect} from "react";
 

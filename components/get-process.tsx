@@ -41,7 +41,7 @@ export default function GetProcess() {
             </Button>
           </Link>
         </div>
-        <Table responsive hover>
+        <Table responsive hover className={"overflow-x-scroll"}>
           <thead>
           <tr>
             <th>Código</th>
